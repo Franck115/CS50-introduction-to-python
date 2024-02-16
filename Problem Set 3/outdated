@@ -1,0 +1,38 @@
+months  = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+]
+
+
+while True:
+    date = input("Date: ").strip()
+    if "," in date:
+        newdate = date.replace(",", "")
+        month, day, year = newdate.split(" ")
+        if month in months:
+            month = months.index(month) + 1
+
+    elif "/" in date:
+        month,day,year = date.split("/")
+    else:
+        pass
+
+    try:
+        day = int(day)
+        month = int(month)
+        if day > 31 or month > 12:
+            pass
+        else:
+            break
+    except (ValueError, NameError):
+        pass
