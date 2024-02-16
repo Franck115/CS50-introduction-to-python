@@ -1,0 +1,5 @@
+ask = input("")
+
+ask3dot = ask.replace(" ", "...")
+
+print(ask3dot)
