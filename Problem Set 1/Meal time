@@ -1,0 +1,22 @@
+def main():
+    time = input("what time is it? ")
+
+    newtime = convert(time)
+    if 7 <= newtime <= 8:
+        print("breakfast time")
+    elif 12 <= newtime <= 13:
+        print("lunch time")
+    elif 18 <= newtime <= 19:
+        print("dinner time")
+
+
+
+def convert(time):
+    x,y = time.split(":")
+    newy = float(y) / 60
+
+    return float(x) + newy
+
+
+if __name__ == "__main__":
+    main()
