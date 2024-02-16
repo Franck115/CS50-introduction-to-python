@@ -1,0 +1,5 @@
+# ask user for in put
+
+ask = input("")
+print(ask.lower())
+
