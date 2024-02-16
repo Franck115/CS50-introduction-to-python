@@ -1,0 +1,20 @@
+def main():
+    # print output
+    word = input("Input: ")
+    result = shorten(word)
+    print("Output: " + result)
+
+
+def shorten(word):
+    # ask user for input
+    name = ""
+    # create a loop that removes vowels from the sentence
+    for i in word:
+        name += i.strip("aeiouAEIOU")
+
+    return name
+
+
+
+if __name__ == "__main__":
+    main()
