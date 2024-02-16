@@ -1,0 +1,15 @@
+grocerylist = {}
+while True:
+    try:
+        grocery = input()
+        if grocery in grocerylist:
+            grocerylist[grocery] += 1
+        else:
+            grocerylist[grocery] = 1
+
+    except EOFError:
+        for i in sorted(grocerylist.keys()):
+            print(grocerylist[i],i.upper())
+        break
+
+
