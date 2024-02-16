@@ -1,0 +1,10 @@
+from validator_collection import checkers
+
+# ask user for email
+email = input("What's your email address? ")
+
+# check validity of the email
+if checkers.is_email(email):
+    print("Valid")
+else:
+    print("Invalid")
