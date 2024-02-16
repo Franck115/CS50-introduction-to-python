@@ -1,0 +1,28 @@
+# import libary
+import random
+
+
+# prompt the user for level
+while True:
+    try:
+        n = int(input("Level: "))
+        # ramdonly generate an integer between the level
+        if n > 0:
+            number = random.randint(1,n)
+            while True:
+                try:
+                    # prompt the user for guess
+                    guess = int(input("Guess: "))
+                    if guess > 0:
+                        if guess > number:
+                            print("Too large!")
+                        elif guess < number:
+                            print("Too small!")
+                        else:
+                            print("Just right!")
+                            break
+                except:
+                    pass
+            break
+    except:
+        pass
