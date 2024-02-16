@@ -1,0 +1,13 @@
+import pytest
+from datetime import date, datetime
+from seasons import format
+
+def main():
+    test_format_error()
+
+
+def test_format_error():
+    with pytest.raises(SystemExit) as sample:
+        format("January 1, 1999")
+    assert sample.type == SystemExit
+    assert sample.value.code == "Invalid date"
