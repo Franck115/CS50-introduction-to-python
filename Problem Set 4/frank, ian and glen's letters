@@ -1,0 +1,28 @@
+# import the packages
+import sys
+import random
+from pyfiglet import Figlet
+
+figlet = Figlet()
+
+# ask for input
+
+
+try:
+    # Check if the first comand is -f or -font
+    if sys.argv[1] not in "-f" or sys.argv[1] not in "-font":
+        sys.exit("Invalid usage")
+    #check if font name is a valid name
+    if sys.argv[2] not in figlet.getFonts():
+        sys.exit("Invalid usage")
+    # set font name
+    figlet.setFont(font=sys.argv[2])
+    ask = input("Input: ")
+    print("Output: ")
+    print(figlet.renderText(ask))
+
+except IndexError:
+    figlet.setFont(font=random.choice(figlet.getFonts()))
+    ask = input("Input: ")
+    print("Output: ")
+    print(figlet.renderText(ask))
