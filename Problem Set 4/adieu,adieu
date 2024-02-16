@@ -1,0 +1,16 @@
+# import package
+import inflect
+
+p = inflect.engine()
+
+# make a list
+names = []
+
+while True:
+    try:
+        ask = input("Name: ")
+        names.append(ask)
+    except EOFError:
+        break
+
+print("Adieu, adieu, to " + p.join(names))
