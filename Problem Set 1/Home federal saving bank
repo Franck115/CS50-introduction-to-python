@@ -1,0 +1,19 @@
+def main():
+    # ask for a greeting
+    greet= input("Greeting: ")
+    print(f"${value(greet)}")
+
+
+def value(greet):
+    if "hello" in greet.lower().strip():
+        return 0
+    elif "h" == greet.lower().strip()[0]:
+        return 20
+    else:
+        return 100
+
+
+
+
+if __name__ == "__main__":
+    main()
