@@ -1,0 +1,25 @@
+import sys
+from tabulate import tabulate
+import csv
+
+
+table =[]
+
+
+name = sys.argv[1]
+if len(sys.argv) > 2:
+    sys.exit("Too many command-line arguments")
+if len(sys.argv) < 2:
+    sys.exit("Too few command-line arguments")
+if ".csv" not in sys.argv[1]:
+    sys.exit("Not a csv file")
+
+try:
+    with open(name) as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            table.append(row)
+    print(tabulate(table[1:], headers=table[0], tablefmt="grid"))
+
+except FileNotFoundError:
+    sys.exit("File does not exist")
