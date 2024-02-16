@@ -1,0 +1,30 @@
+from plates import is_valid
+
+def main():
+    test_plates_len()
+    test_plates_dec()
+    test_plates_num()
+    test_plates_zero()
+    test_plates_alpha()
+
+
+def test_plates_len():
+    assert is_valid("CS50P") == False
+    assert is_valid("OUTATIME") == False
+    assert is_valid("H") == False
+def test_plates_dec():
+    assert is_valid("PI3.14") == False
+def test_plates_num():
+    assert is_valid("CS50") == True
+    assert is_valid("CS50P2") == False
+def test_plates_zero():
+    assert is_valid("CS05") == False
+def test_plates_alpha():
+    assert is_valid("50CS") == False
+    assert is_valid("50") == False
+    assert is_valid("CS") == True
+
+
+if __name__ == "__main__":
+    main()
+
