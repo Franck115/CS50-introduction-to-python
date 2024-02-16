@@ -1,0 +1,17 @@
+# implementing the function convert
+def convert(ask):
+    askhappy = ask.replace(":)", "🙂")
+    asksad = askhappy.replace(":(", "🙁")
+    return asksad
+
+
+
+# implementing the main function
+def main():
+    # ask input
+    ask = input()
+    new_ask = convert(ask)
+
+    print(new_ask)
+
+main()
