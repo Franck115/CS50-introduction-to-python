@@ -1,0 +1,29 @@
+import sys
+
+
+# check input length
+if len(sys.argv) > 2:
+    sys.exit("Too many command-line arguments")
+if len(sys.argv) < 2:
+    sys.exit("Too few command-line arguments")
+# check if argument is a python file
+if ".py" not in sys.argv[1]:
+    sys.exit("Not a python file")
+
+
+try:
+    with open(sys.argv[1], "r") as file:
+        lines = file.readlines()
+        cnt = 0
+        for line in lines:
+            if line.isspace():
+                cnt +=0
+            elif line.lstrip().startswith("#"):
+                cnt +=0
+            else:
+                cnt +=1
+    print(cnt)
+
+
+except FileNotFoundError:
+    sys.exit("File does not exist")
