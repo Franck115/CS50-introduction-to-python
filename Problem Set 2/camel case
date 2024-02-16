@@ -1,0 +1,13 @@
+# Ask for user name
+
+ask = input("camelcase: ")
+
+print("snake_case: ",end = "")
+
+for i in ask:
+    if i.isupper():
+        print("_" + i.lower(), end ="")
+    else:
+        print(i, end ="")
+
+print()
