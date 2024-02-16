@@ -1,0 +1,21 @@
+# ask user input
+amount = 50
+print(f"Amount Due: {amount}")
+coke = int(input("Insert Coin: "))
+# coins accepted
+list1 = [50, 25, 10, 5]
+# check if coin is accepted
+if coke in list1:
+    while True:
+        Newamount = amount - coke
+        if coke < amount:
+            print(f"Amount Due: {Newamount}")
+            coke1 = int(input("Insert Coin: "))
+            coke = coke + coke1
+        else:
+            # calculate change owe
+            owe = coke - amount
+            print(f"Change Owed: {owe}")
+            break
+else:
+    print(f"Amount Due: {amount}")
