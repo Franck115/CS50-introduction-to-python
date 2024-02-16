@@ -1,0 +1,29 @@
+from datetime import date, timedelta, datetime
+import inflect
+import sys
+
+p = inflect.engine()
+
+def main():
+    dob = format(input("Date of Birth: "))
+    today = date.today()
+    td = today - dob
+    delta =int(td /timedelta(minutes=1))
+    word = p.number_to_words(delta, andword="").capitalize()
+
+    print(f"{word}" +  " minutes")
+
+
+def format(date):
+    try:
+        date1 = datetime.strptime(date, "%Y-%m-%d")
+    except:
+        raise sys.exit('Invalid date')
+    return datetime.date(date1)
+
+
+
+
+if __name__ == "__main__":
+    main()
+
