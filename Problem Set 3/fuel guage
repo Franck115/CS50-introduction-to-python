@@ -1,0 +1,42 @@
+# Ask user for input fraction
+
+def main():
+
+    while True:
+
+        try:
+            # Ask user for input fraction
+            fraction = input("Fraction: ")
+            percentage = convert(fraction)
+            result = gauge(percentage)
+
+        # add an exception
+        except (ZeroDivisionError,ValueError,NameError):
+            pass
+        else:
+            break
+    print(result, sep ="")
+
+
+def convert(fraction):
+     x,y = fraction.split("/")
+        # x should be less than or equal to y
+     if int(x) <= int(y):
+        # calculate the result as percentage
+        percentage = round((int(x) / int(y))*100)
+     return percentage
+
+
+
+def gauge(percentage):
+
+        if percentage <=1:
+            return "E"
+        elif percentage >= 99:
+            return "F"
+        else:
+            return str(percentage) +"%"
+
+
+if __name__ == "__main__":
+    main()
