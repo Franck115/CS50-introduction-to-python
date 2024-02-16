@@ -1,0 +1,23 @@
+from um import count
+
+def main():
+    test_count()
+    test_count_all()
+    test_count_space()
+    test_count_cap()
+
+
+def test_count():
+    assert count("um?") == 1
+
+def test_count_all():
+    assert count("yummy?") != 1
+
+def test_count_space():
+    assert count(" um ") == 1
+
+def test_count_cap():
+    assert count(" UM ") == 1
+
+if __name__ == "__main__":
+    main()
