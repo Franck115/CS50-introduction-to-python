@@ -1,0 +1,25 @@
+import pytest
+
+from working import convert
+
+def main():
+    test_convert()
+    test_convert_error()
+    test_convert_error2()
+    test_convert_error3()
+
+
+
+def test_convert():
+    assert convert("12:00 PM to 12:00 AM") == "12:00 to 00:00"
+
+def test_convert_error():
+    with pytest.raises(ValueError):
+        convert("5 PM - 9 AM")
+
+def test_convert_error2():
+    with pytest.raises(ValueError):
+        convert("11:60 PM - 9:60 AM")
+def test_convert_error3():
+    with pytest.raises(ValueError):
+        convert("13 PM to 19 PM")
