@@ -1,0 +1,31 @@
+import sys
+from PIL import Image, ImageOps
+import os.path
+
+
+# check input length
+if len(sys.argv) > 3:
+    sys.exit("Too many command-line arguments")
+if len(sys.argv) < 3:
+    sys.exit("Too few command-line arguments")
+# Input and output name must have the same extension
+if os.path.splitext(sys.argv[1])[1] not in (".jpg",".png",".jpeg") or os.path.splitext(sys.argv[2])[1] not in (".jpg",".png",".jpeg"):
+    sys.exit("Invalid output")
+# check if input and output extensions are valid
+if os.path.splitext(sys.argv[1])[1] != os.path.splitext(sys.argv[2])[1]:
+    sys.exit("Input and output have different extensions")
+# check if file exist
+try:
+    before = Image.open(sys.argv[1])
+
+except FileNotFoundError:
+    sys.exit("Input does not exist")
+
+
+shirt = Image.open("shirt.png")
+size = shirt.size
+
+after = ImageOps.fit(before, size)
+after.paste(shirt, shirt)
+
+after.save(sys.argv[2])
