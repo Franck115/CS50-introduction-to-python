@@ -1,0 +1,63 @@
+# import libary
+import random
+
+
+def main():
+    get = get_level()
+    score = 0
+    cnt = 1
+    while cnt <= 10:
+        lvl = generate_integer(get)
+        result = simul(lvl)
+        if result == True:
+            score += 1
+        cnt += 1
+    print(f"Score: {score}")
+
+
+
+def get_level():
+    while True:
+        try:
+            level = int(input("Level: "))
+            if level in (1, 2, 3):
+                return level
+        except:
+            pass
+
+
+def generate_integer(level):
+    if level not in (1, 2, 3):
+        raise ValueError
+    if level == 1:
+        x = random.randrange(10)
+        y = random.randrange(10)
+    elif level == 2:
+        x = random.randrange(10,100)
+        y = random.randrange(10,100)
+    else:
+        x = random.randrange(100,1000)
+        y = random.randrange(100,1000)
+    return f"{x} + {y}"
+
+def simul(lvl):
+    i = 1
+    while i <= 3:
+        try:
+            answer = int(input(f"{lvl} = "))
+            value = eval(lvl)
+            if answer == value:
+                return True
+            else:
+                i +=1
+                print("EEE")
+        except:
+            i +=1
+            print("EEE")
+    print(f"{lvl} = {value}")
+    return False
+
+
+
+if __name__ == "__main__":
+    main()
